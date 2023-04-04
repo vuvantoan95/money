@@ -144,6 +144,7 @@ defmodule Money do
       |> add_missing_leading_digit
 
     case @parser.parse(value) do
+      {:ok, decimal} -> parse(decimal, currency, [])
       {float, _} -> parse(float, currency, [])
       :error -> :error
     end
